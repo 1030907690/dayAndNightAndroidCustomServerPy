@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from dayAndNightAndroidCustomServerPy.views import search,homeRecommend,videoDetail
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    #path('admin/', admin.site.urlsr),
+    path(r'search', search),
+    path(r'homeRecommend', homeRecommend),
+    path(r'videoDetail', videoDetail),
 ]
