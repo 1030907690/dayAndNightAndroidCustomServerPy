@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.http import HttpResponse
-from django.shortcuts import render
-from django.shortcuts import render_to_response
-from django.http import JsonResponse
+
 
 
 import json
@@ -10,6 +8,11 @@ import json
 
 from .bean.VideoSearch import *
 import re
+
+'''
+返回的数据结构就是这样
+'''
+
 
 #搜索 2019年12月9日15:29:40
 def search(request):
@@ -35,8 +38,9 @@ def homeRecommend(request):
 #视频详情
 def videoDetail(request):
     url = request.GET.get("url",None)
-
-    return HttpResponse("");
+    # videoGroupList 视频播放节点分组
+    json_str = '{"videoGroupList":[{"group":"wlm3u8","videoList":[{"name":"第1集","url":"http://cn6.7639616.com/hls/20191209/201eddfd3d1335f819edb977417f6784/1575872830/index.m3u8"}]}],"url":"http://wolongzy.net/detail/299773.html","performer":"胡歌","imageUrl":"http://cn2.3days.cc/1575873305179637.jpeg","name":"南方车站的聚会[TS]","plot":"南方车站的聚会"}'
+    return HttpResponse(json_str);
 
 
 if __name__ == '__main__':
